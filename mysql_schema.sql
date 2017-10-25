@@ -27,9 +27,7 @@ create table if not exists mvdb_item (
 	createdon           date,
 	expiryon            date,
 	has_expired         boolean,
-	itemurl             varchar(400),
-	cost                bigint,
-    currency            enum('us$','inr','cad$','aus$','yuan','yen')
+	itemurl             varchar(400)
 );
 
 create table if not exists mvdb_review_rating_relationship (
@@ -42,6 +40,8 @@ create table if not exists mvdb_review_rating_relationship (
 	foreign key (fk_item_id) references mvdb_item(id) on delete cascade,
 
 	my_relationship_with_item    enum('Owned', 'Created', 'Shared', 'Viewed', 'Used'),
+	ipaid               bigint,
+    currency            enum('us$','inr','cad$','aus$','yuan','yen'),
 	rating              int, -- [+10 to -10]
 	comments 			varchar(3000),
 	pros				varchar(1000),

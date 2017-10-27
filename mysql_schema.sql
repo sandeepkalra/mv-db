@@ -53,5 +53,7 @@ create table if not exists review_rating_relationship (
 	cons				    varchar(1000),
 	createdon			    date,
 	relationshipdate	    date,
+	has_response			boolean, -- this review has a review !
+	is_response			    boolean, -- this review is a review of other review!
 	hide_details		    boolean
 );

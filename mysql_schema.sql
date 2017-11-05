@@ -7,7 +7,7 @@ create table if not exists person (
 	f_name     		varchar(100),
 	l_name     		varchar(100),
 	password        varchar(100),
-	digit_lock 		int,
+	digit_lock 		varchar(100),
 	is_blocked		boolean,
     one_time_token 	varchar(200),
 	created_on 		date

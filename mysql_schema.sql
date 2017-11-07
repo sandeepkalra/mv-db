@@ -57,3 +57,19 @@ create table if not exists review_rating_relationship (
 	is_response			    boolean, -- this review is a review of other review!
 	hide_details		    boolean
 );
+
+-- we will add manufacturer, but never delete them
+-- so, we only use this to list them
+create table if not exists manufacturers_list (
+		id bigint auto_increment primary key not null,
+		name varchar(100)
+);
+
+-- we will add but never remove the categories
+-- Check design, we are doing inner-join (TODO: comeback to see if this makes sense)
+create table if not exists category (
+	id bigint auto_increment primary key not null,
+	name varchar(100),
+	fk_parent_category_id bigint, -- can be 0
+	foreign key(fk_parent_category_id) references category(id)
+);

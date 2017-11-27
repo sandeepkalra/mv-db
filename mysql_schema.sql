@@ -70,6 +70,6 @@ create table if not exists manufacturers_list (
 create table if not exists category (
 	id bigint auto_increment primary key not null,
 	name varchar(100),
-	fk_parent_category_id bigint, -- can be 0
-	foreign key(fk_parent_category_id) references category(id)
+	fk_parent_category_id bigint -- can be 0
+	-- foreign key(fk_parent_category_id) references category(id) , a fk of 0 wont be allowed in this case but we need it.
 );
